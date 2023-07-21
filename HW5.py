@@ -71,4 +71,35 @@ print(sum_full)
 # ■ Створити список цілих, що містить лише позитивні числа з першого списку.
 
 
+import random
+
+NUMS_SIZE = 10
+numbers = []
+paired = []
+unpaired = []
+negative = []
+positive = []
+
+for i in range(NUMS_SIZE):
+    numbers.append(random.randint(-100, 100))
+
+print(numbers)
+
+for b in range(NUMS_SIZE):
+    if numbers[b] % 2 == 0:
+        paired.append(numbers[b])
+print(paired)
+for b in range(NUMS_SIZE):
+    if numbers[b] % 2 != 0:
+        unpaired.append(numbers[b])
+print(unpaired)
+for b in range(NUMS_SIZE):
+    if numbers[b] < 0:
+        negative.append(numbers[b])
+print(negative)
+for b in range(NUMS_SIZE):
+    if numbers[b] > 0:
+        positive.append(numbers[b])
+print(positive)
+
 
