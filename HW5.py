@@ -1,105 +1,52 @@
-# У списку цілих, заповненому випадковими числами обчислити:
-# ■ Суму негативних чисел;
-# ■ Суму парних чисел;
-# ■ Суму непарних чисел;
-# ■ Добуток елементів з кратними індексами 3;
-# ■ Добуток елементів між мінімальним та максимальним елементом;
-# ■ Суму елементів, що знаходяться між першим та останнім позитивними елементами.
+# словники:
+#
+# 1. Наведено список країн і міст кожної країни. Для кожного міста вкажіть, в якій країні воно знаходиться.
+# 2. Дано два списки однакової довжини. Необхідно створити з них словник таким чином, щоб елементи першого списку були ключами, а елементи другого відповідно значеннями нашого словника.
 
-import random
+contry = {
+  "Україна": ["Київ", "Львів", "Дніпро"],
+  "США": ["Лос-Анджелес", "Лас-Вегас"],
+  "Франція": ["Париж", "Ліон"],
+  "Німеччина": ["Берлін", "Мюнхен"],
+  "Китай": ["Пекін", "Шанхай", "Гуанчжоу"],
+  "Іспанія": ["Мадрид", "Барселона"],
+  "Італія": ["Рим", "Мілан"],
+}
 
-NUMS_SIZE = 10
-sum_min = 0
-sum_par = 0
-sum_nop = 0
-product = 1
-prod = 1
-sum_full = 0
-numbers = []
-
-for i in range(NUMS_SIZE):
-    numbers.append(random.randint(-100, 100))
-
-print(numbers)
-# 1
-for b in range(NUMS_SIZE):
-    if numbers[b] < 0:
-        sum_min += numbers[b]
-# 2
-for b in range(NUMS_SIZE):
-    if numbers[b] % 2 == 0:
-        sum_par += numbers[b]
-# 3
-for b in range(NUMS_SIZE):
-    if numbers[b] % 2 == 1:
-        sum_nop += numbers[b]
-# 4
-for b in range(NUMS_SIZE):
-    if b % 3 == 0 and b != 0:
-        product *= numbers[b]
-# 5
-prod = min(numbers) * max(numbers)
-# 6
-first_positive_index = -1
-for b in range(len(numbers)):
-    if numbers[b] > 0:
-        first_positive_index = b
-        break
-last_positive_index = -1
-for b in range(len(numbers) - 1, -1, -1):
-    if numbers[b] > 0:
-        last_positive_index = b
-        break
-
-if first_positive_index != -1 and last_positive_index != -1 and last_positive_index > first_positive_index:
-    for b in range(first_positive_index + 1, last_positive_index):
-        sum_full += numbers[b]
-
-print(sum_min)
-print(sum_par)
-print(sum_nop)
-print(product)
-print(prod)
-print(sum_full)
-
-# Завдання 2
-# Є список цілих, заповнений випадковими числами.
-# На підставі даних цього масиву потрібно:
-# ■ Створити список цілих, що містить лише парні числа з першого списку;
-# ■ Створити список цілих, що містить лише непарні числа з першого списку;
-# ■ Створити список цілих, що містить лише негативні числа з першого списку;
-# ■ Створити список цілих, що містить лише позитивні числа з першого списку.
+print(contry["США"])
 
 
-import random
+user_first_list = ["name", "country", "time"]
+user_second_list = ["Ivan", "Ukraine", "+3"]
+user_dict = {}
+for i in range(len(user_first_list)):
+    keys = user_first_list[i]
+    names = user_second_list[i]
+    user_dict[keys] = names
+print(user_dict)
+print(user_dict["name"])
 
-NUMS_SIZE = 10
-numbers = []
-paired = []
-unpaired = []
-negative = []
-positive = []
+# 1. Створити список чисел. Заберіть дублікати значень. Вивести унікальні значення.
 
-for i in range(NUMS_SIZE):
-    numbers.append(random.randint(-100, 100))
+text = [1, 2, 3, 2, 4, 5, 5, 6, 1]
+speceal_text = []
 
-print(numbers)
+for i in text:
+    if i not in speceal_text:
+        speceal_text.append(i)
+print(speceal_text)
+# 2. Дано два списки чисел.
+# Порахуйте, скільки чисел міститься як у першому списку, і у другому.
+text1 = [1, 2, 3, 2, 4, 5, 5, 6, 1]
+text2 = [3, 9, 5, 5, 32, 2, 7]
+print(len(text1))
+print(len(text2))
 
-for b in range(NUMS_SIZE):
-    if numbers[b] % 2 == 0:
-        paired.append(numbers[b])
-print(paired)
-for b in range(NUMS_SIZE):
-    if numbers[b] % 2 != 0:
-        unpaired.append(numbers[b])
-print(unpaired)
-for b in range(NUMS_SIZE):
-    if numbers[b] < 0:
-        negative.append(numbers[b])
-print(negative)
-for b in range(NUMS_SIZE):
-    if numbers[b] > 0:
-        positive.append(numbers[b])
-print(positive)
-
+# 3. Даний текст: у першому рядку записано число рядків, далі йдуть самі рядки.
+#
+# Визначте, скільки різних слів міститься у цьому тексті.
+#
+#
+#
+# Словом вважається послідовність непробільних символів, що йдуть поспіль, слова розділені одним або більшим числом пробілів або символами кінця рядка.
 
